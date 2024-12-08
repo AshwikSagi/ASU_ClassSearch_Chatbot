@@ -53,8 +53,8 @@ This project solves these problems by creating a single platform to access and q
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/asu-class-search-virtual-assistant.git
-cd asu-class-search-virtual-assistant
+git clone https://github.com/AshwikSagi/ASU_ClassSearch_Chatbot.git
+cd ASU_ClassSearch_Chatbot
 ```
 
 2. **Create a Virtual Environment**

@@ -1,9 +1,14 @@
 import os
 import subprocess
-from scraper_utils import scrape_courses
-from rate_professor_utils import scrape_professor_reviews
-from faculty_profiles_utils import scrape_faculty_profiles
-from create_database import create_database
+import sys
+
+# Add the parent directory of 'src' to the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.utils.scraper_utils import scrape_courses
+from src.utils.rate_professor_utils import scrape_professor_reviews
+from src.utils.faculty_profiles_utils import scrape_faculty_profiles
+from database.create_database import create_database
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -16,12 +21,12 @@ CHROME_DRIVER_PATH = "/Users/ashwiksagi/Downloads/chromedriver-mac-arm64/chromed
 STREAMLIT_APP_PATH = os.path.join(BASE_DIR, "../web/streamlit_app.py")
 
 def main():
-    print("Initializing database...")
+    print("Initializing database...") 
     create_database(DB_PATH)
 
     # User input
     subject = input("Enter course subject (e.g., CSE): ").strip()
-    catalog_number = input("Enter course number (e.g., 510): ").strip()
+    catalog_number = input("Enter course number (e.g., 505): ").strip()
 
     print("Step 1: Scraping courses...")
     scrape_courses(CHROME_DRIVER_PATH, subject, catalog_number, DB_PATH)
